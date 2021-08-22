@@ -16,7 +16,10 @@ class Legal500Spider(scrapy.Spider):
     """
     name = 'legal500_spider1'
     allowed_domains = ['legal500.com']
-    start_urls = ['https://www.legal500.com/c/france/directory/']
+
+    def __init__(self, directory_url=None):
+        # Initializes the start_urls with the passed in directory_url
+        self.start_urls = [directory_url]
 
     def parse(self, response):
         # Get a list of all the firms
